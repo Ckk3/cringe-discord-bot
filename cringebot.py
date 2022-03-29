@@ -5,22 +5,32 @@ import discord
 #Instance to connect to discord
 client = discord.Client()
 
-ckkID = os.getenv('ckkDISC_ID')
+ckk = os.getenv('ckkDISC_ID')
+discodia = os.getenv('discordiaDISC_ID')
+heleven = os.getenv('helevenDISC_ID')
+theus = os.getenv('theusDISC_ID')
+rdgnow = os.getenv('rdgnowDISC_ID')
 
+reactions = {
+    ckk:['🇷','🇦','🇳','🇩','🇴','Ⓜ️'],
+    discodia:['🇧','🇦','🇸','🇪','🇩'],
+    heleven:['🇹','🇴','🇧','🇦','🌟','🆓','🔥'],
+    theus:['🇸','0️⃣','🇨','🇦','🇫','🇴','🤏','⏺️','😈','🗣️'],
+    rdgnow:['🇨','🇷','ℹ️','🇳','🇬','🇪']
+}
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('Ta rodando como -> {0.user}'.format(client))
 
 @client.event
 async def on_message(message):
-    if message.author == client.user:
-        return
+    authorID = str(message.author.id)
 
-    if str(message.author.id) == ckkID:
-        await message.add_reaction('🇧')
+    if authorID in reactions:
+        for emoji in reactions[authorID]:
+            await message.add_reaction(emoji)
         
-
 client.run(os.getenv('discordAPI_KEY'))
 
 
