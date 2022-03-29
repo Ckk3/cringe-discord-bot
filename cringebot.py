@@ -1,22 +1,27 @@
 import os
-from unicodedata import name
 import discord
 
 #Instance to connect to discord
 client = discord.Client()
 
+#Getting users ID from env variables
 ckk = os.getenv('ckkDISC_ID')
 discodia = os.getenv('discordiaDISC_ID')
 heleven = os.getenv('helevenDISC_ID')
 theus = os.getenv('theusDISC_ID')
 rdgnow = os.getenv('rdgnowDISC_ID')
+murilo = os.getenv('muriloDISC_ID')
+markoz = os.getenv('markozDISC_ID')
 
+#Dict with the reactions to users
 reactions = {
     ckk:['🇷','🇦','🇳','🇩','🇴','Ⓜ️'],
     discodia:['🇧','🇦','🇸','🇪','🇩'],
     heleven:['🇹','🇴','🇧','🇦','🌟','🆓','🔥'],
     theus:['🇸','0️⃣','🇨','🇦','🇫','🇴','🤏','⏺️','😈','🗣️'],
-    rdgnow:['🇨','🇷','ℹ️','🇳','🇬','🇪']
+    rdgnow:['🇨','🇷','ℹ️','🇳','🇬','🇪'],
+    murilo:['🇹','🇨','🇭','🇴','🇱','🇦'],
+    markoz:['🇱','🇪','ℹ️','🇹','3️⃣','🇷','🇴','🥛']
 }
 
 @client.event
